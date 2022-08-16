@@ -1,46 +1,88 @@
-$('#header').prepend('<div id="menu-icon"><span class="first"></span><span class="second"></span><span class="third"></span></div>');
+/*jslint browser:true */
+$(document).ready(function () {
+	var $body = $('body');
+	var $navbar = $('.navbar-default');
+	var $offsetY = $navbar.offset().top + 10;
+	var $menuButton = $('button.navbar-toggle');
+	var $menuIcon = $('.navbar-toggle .glyphicon');
+	var $collapsedMenuItem = $('.navbar-collapse.collapse li');
+	var $modalBackdropDiv = $('<div class="modal-backdrop fade in"></div>');
+	var $scrollButton = $('.scroll');
+	var $socialIcon = $('.social');
+
+	// Fixed Nav after scroll
+	function scroll() {
+		if ($(window).scrollTop() >= $offsetY) {
+			$navbar.addClass('menu-fixed').css('background-color', 'rgba(255,254,253,0.97)');
+		} else {
+			$navbar.removeClass('menu-fixed').css('background-color', 'transparent');
+		}
+	}
+	document.onscroll = scroll;
+
+	// Mobile Menu functions
+	function openMenu() {
+		$menuIcon.removeClass('glyphicon-menu-hamburger').addClass('glyphicon-remove active');
+		$modalBackdropDiv.css('z-index', 900);
+		$body.append($modalBackdropDiv);
+		if (!$navbar.hasClass('menu-fixed')) {
+			$navbar.css('background-color', 'rgba(255,254,253,0.97)');
+		}
+		// Close menu after clicking modal-backdrop
+		$modalBackdropDiv.on('click', function () {
+			$('.navbar-toggle').click();
+			closeMenu();
+		});
+	}
+	function closeMenu() {
+		$menuIcon.removeClass('glyphicon-remove active').addClass('glyphicon-menu-hamburger');
+		$modalBackdropDiv.css('z-index', 1025).remove();
+		if (!$navbar.hasClass('menu-fixed')) {
+			$navbar.css('background-color', 'transparent');
+		}
+	}
+	// Mobile Menu Icon Toggle
+	$menuButton.on('click', function () {
+		if ($menuIcon.hasClass('glyphicon-menu-hamburger')) {
+			openMenu();
+			// Close menu after clicking a link
+			$collapsedMenuItem.on('click', function () {
+				$('.navbar-toggle').click(); // Trigger collapse animation
+				closeMenu();
+			});
+		} else {
+			closeMenu();
+		}
+	});
+	// Collapse menu on resize
+	$(window).resize(closeMenu());
+
+	// Smooth scroll to content
+	$scrollButton.on('click', function (e) {
+		e.preventDefault();
+		var $link = $(this).attr('href');
+		$('html, body').animate({
+			scrollTop: $($link).offset().top - 60
+		}, 900);
+	});
+
+	// Social icons hover effect
+	$socialIcon.on({
+		'focus mouseenter': function () {
+			var $iconImg = $(this).children();
+			var $href = $iconImg.attr('src').slice(0, -18) + 'color.png?raw=true'; // Remove 'black.svg' from end and add 'color.svg'
+			$iconImg.attr('src', $href);
+		},
+		'blur mouseleave': function () {
+			var $iconImg = $(this).children();
+			var $href = $iconImg.attr('src').slice(0, -18) + 'black.png?raw=true';
+			$iconImg.attr('src', $href);
+		}
+	});
+
+	// Center modals vertically
+
+
+
 	
-	$("#menu-icon").on("click", function(){
-    $("nav").slideToggle();
-    $(this).toggleClass("active");
 });
-const wrapper = document.getElementById("bubble-wrapper");
-
-let index = 0;
-
-const Color = {
-  Red: "239, 83, 80",
-  Orange: "255, 160, 0",
-  Yellow: "253, 216, 53",
-  Green: "42, 252, 152",
-  Blue: "41, 121, 255",
-  Indigo: "57, 73, 171",
-  Violet: "103, 58, 183"
-};
-
-const colors = [
-  Color.Red,
-  Color.Orange,
-  Color.Yellow,
-  Color.Green,
-  Color.Blue,
-  Color.Indigo,
-  Color.Violet
-];
-
-const animateBubble = (x) => {
-  const bubble = document.createElement("div");
-
-  bubble.className = "bubble";
-
-  bubble.style.left = `${x}px`;
-
-  // Uncomment this for rainbow effect
-  // bubble.style.backgroundColor = `rgb(${colors[index++ % 7]})`;
-
-  wrapper.appendChild(bubble);
-
-  setTimeout(() => wrapper.removeChild(bubble), 2000);
-};
-
-window.onmousemove = (e) => animateBubble(e.clientX);
