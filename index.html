@@ -1,118 +1,81 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Pravah Studio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-<link rel="stylesheet" href="./style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+  <link rel="stylesheet" href="./style.css">
 
 </head>
+
 <body>
-<!-- partial:index.partial.html -->
-<div id="header">
-  <div class="logo">
-    <a href="#">Responsive Nav</a>
-  </div>  
-  <nav>
-    <form class="search" action="search.php"> 
-      <input name="q" placeholder="Search..." type="search">
-    </form>
-    <ul>
-      <li>
-        <a href="">Home</a>
-      </li>
-      <li>
-        <a href="">About</a>
-        <ul class="mega-dropdown">
-          <li class="row">
-            <ul class="mega-col">
-              <li><a href="#">About</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Contact</a></li>
-              <li><a href="#">Contact</a></li>
-            </ul>
-            <ul class="mega-col">
-              <li><a href="#">Help</a></li>
-              <li><a href="#">Pricing</a></li>
-              <li><a href="#">Team</a></li>
-              <li><a href="#">Services</a></li>
-            </ul>
-            <ul class="mega-col">
-              <li><a href="#">Coming Soon</a></li>
-              <li><a href="#">404 Error</a></li>
-              <li><a href="#">Search</a></li>
-              <li><a href="#">Author Page</a></li>
-            </ul>
-            <ul class="mega-col">
-              <li><a href="#">Full Width</a></li>
-              <li><a href="#">Right Column</a></li>
-              <li><a href="#">Left Column</a></li>
-              <li><a href="#">Maintenance</a></li>
-            </ul>
-          </li>
-        </ul>        
-      </li>
-      <li class="dropdown">
-        <a href="">Contact</a>
-          <ul>
-            <li><a href="#">About Version</a></li>
-            <li><a href="#">About Version</a></li>
-            <li><a href="#">Contact Us</a></li>
-            <li><a href="#">Contact Us</a></li>
-          </ul>        
-      </li>
-      <li>
-        <a href="">Portfolio</a>
-      </li>
-      <li>
-        <a href="">Team</a>
-      </li>
-    </ul>
-  </nav>
-</div>
-  <div id="bubble-wrapper">
+  <!-- partial:index.partial.html -->
+
+  <body data-spy="scroll" data-target="#main-nav" data-offset="60">
+    <!-- Fixed Navbar -->
+    <nav id="main-nav" class="navbar navbar-default ">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <!-- Menu Toggle -->
+
+          <a class="navbar-brand scroll" href="#top"><img class="pull-left logo" src="images/logopng2.png"
+              alt="TD Logo"><span>Pravah Studio</span></a>
+        </div>
+        <!-- Collapsible Menu -->
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a class="scroll" href="#top">Home <span class="sr-only">(current)</span></a></li>
+            <li><a class="scroll" href="#about">About Me</a></li>
+
+            <li><a class="scroll" href="#portfolio">Portfolio</a></li>
+            <li><button class="btn td-btn small outline pink" data-toggle="modal" data-target="#contactModal">Sign
+                In</button></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <!-- Jumbotron -->
+    <header id="top" class="jumbotron">
+      <div class="container">
+        <video width="2000px" loop="true" autoplay="autoplay" muted style="object-fit: cover;">
+          <source src="images/logov.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="overlay">
+          <h1 style="font-size:500%;">WE BRING YOU</h1>
+        </div>
+        <h1 style="color: red; font-size:500%;  position:absolute; top: 405px;left: 1400px; z-index:1;"> WHAT YOU WANT</h1>
+      </div>
+
+    </header>
+    <hr>
+
+
+
+    <!-- Contact Me Section -->
+    <section class="row bg-pink bg-shadow">
+      <hr>
+    </section>
     
-
-<footer id="footer">
-  <div id="footer-content">
-    <div class="footer-section">
-      <h3 class="footer-section-title">General</h3>
-      <div class="footer-section-links">
-        <a href="https://www.youtube.com/c/Hyperplexed" target="_blank">Directory</a>
-        <a href="https://www.youtube.com/c/Hyperplexed" target="_blank">About</a>
-        <a href="https://www.youtube.com/c/Hyperplexed" target="_blank">Contact Us</a>
-      </div>
-    </div>
-    <div class="footer-section">
-      <h3 class="footer-section-title">Social</h3>
-      <div class="footer-section-links">
-        <a href="https://www.youtube.com/c/Hyperplexed" target="_blank">Twitter</a>
-        <a href="https://www.youtube.com/c/Hyperplexed" target="_blank">CodePen</a>
-        <a href="https://www.youtube.com/c/Hyperplexed" target="_blank">YouTube</a>
-      </div>
-    </div>
-    <div class="footer-section">
-      <h3 class="footer-section-title">Legal</h3>
-      <div class="footer-section-links">
-        <a href="https://www.youtube.com/c/Hyperplexed" target="_blank">Privacy</a>
-        <a href="https://www.youtube.com/c/Hyperplexed" target="_blank">Terms</a>
-        <a href="https://www.youtube.com/c/Hyperplexed" target="_blank">Cookies</a>
-      </div>
-    </div>
-  </div>
-</footer>
+    <!-- Footer -->
 
 
 
-<a id="yt-link" class="meta-link" href="https://youtube.com/shorts/VTw2cUVFl1c" target="_blank">
-  <i class="fa-brands fa-youtube"></i>
-  <span>60s Tutorial</span>
-</a>
-<!-- partial -->
-  <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="./script.js"></script>
-    </div>
+
+
+
+    <!-- Contact Modal -->
+
+
+  </body>
+  <!-- partial -->
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+  <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+  <script src="./script.js"></script>
 
 </body>
-  
 
 </html>
